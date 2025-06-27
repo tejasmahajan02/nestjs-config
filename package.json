@@ -7,12 +7,12 @@
   "license": "UNLICENSED",
   "scripts": {
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
-
+    
     "build": "nest build",
     "prestart:dev": "npm run build",
     "prestart:prod": "npm run build",
-
+    
+    "start": "nest start",
     "start:local": "cross-env NODE_ENV=development.local nest start --watch",
     "start:dev": "cross-env NODE_ENV=development node dist/main",
     "start:prod": "cross-env NODE_ENV=production node dist/main",
