@@ -16,11 +16,11 @@ const ENV = Object.values(Environment).includes(
   ? (process.env.NODE_ENV as Environment)
   : Environment.Local;
 
-const ENV_FILE_PATH = join(process.cwd(), `.env.${ENV}`);
-const COMMON_ENV_FILE_PATH = join(process.cwd(), `.env.common`);
-
 // Note : dotenv gives higher precedence to variables defined in the FIRST file loaded.
-const envFilePath = [ENV_FILE_PATH, COMMON_ENV_FILE_PATH];
+const envFilePath = [
+  join(process.cwd(), '.env.common'),
+  join(process.cwd(), `.env.${ENV}`),
+];
 
 for (const file of envFilePath) {
   if (!existsSync(file)) {
