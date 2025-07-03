@@ -33,6 +33,7 @@ for (const file of envFilePath) {
     ConfigModule.forRoot({
       envFilePath,
       isGlobal: true,
+      expandVariables: true,
     }),
   ],
 })
