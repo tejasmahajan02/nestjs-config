@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { join } from 'path';
 import { existsSync } from 'fs';
+import * as Joi from 'joi';
 
 export enum Environment {
   Local = 'development.local',
@@ -28,12 +29,22 @@ for (const file of envFilePath) {
   }
 }
 
+const validationSchema = Joi.object({
+  NODE_PORT: Joi.number().port().default(3000),
+});
+
 @Module({
   imports: [
     ConfigModule.forRoot({
       envFilePath,
       isGlobal: true,
       expandVariables: true,
+      validationSchema,
+      validationOptions: {
+        abortEarly: false, // show all errors
+        allowUnknown: true, // allow variables not in schema
+        stripUnknown: true, // remove unknowns
+      },
     }),
   ],
 })
