@@ -76,6 +76,8 @@ $ npm run test:cov
 * ✅ Shared `.env.common` for global values
 * ✅ Safe path resolution (`path.join`)
 * ✅ Required file validation on startup
+* ✅ Joi-based environment schema validation
+* ✅ Variable expansion via `${VAR}` using `expandVariables: true`
 * ✅ Clean and minimal NestJS starter
 * ✅ Easily extendable config logic
 
@@ -85,7 +87,7 @@ $ npm run test:cov
 
 * [NestJS](https://nestjs.com/)
 * [@nestjs/config](https://docs.nestjs.com/techniques/configuration)
-* [dotenv](https://www.npmjs.com/package/dotenv)
+* [Joi](https://www.npmjs.com/package/joi)
 * TypeScript
 
 ---
